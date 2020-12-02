@@ -8,11 +8,11 @@ public class Card {
         this.rank = rank;
         this.suite = suite;
     }
-    public String getRank() {
-        return "5";
+    public char getRank() {
+        return rank;
     }
 
     public Suite getSuite() {
-        return Suite.HEART;
+        return suite;
     }
 }
