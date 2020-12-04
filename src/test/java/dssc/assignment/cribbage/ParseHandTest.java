@@ -39,4 +39,6 @@ public class ParseHandTest {
                 () -> assertEquals(Suite.SPADE, hand.dealCard(4).getSuite())
         );
     }
+
+
 }

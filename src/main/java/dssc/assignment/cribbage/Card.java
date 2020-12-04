@@ -11,7 +11,14 @@ public class Card {
     public char getRank() {
         return rank;
     }
+    public int getRankInt() {
 
+        if (rank == 'A')
+            return 1;
+        else if (rank == 'J' || rank == 'Q' || rank == 'K')
+            return 10;
+        else return Integer.parseInt(String.valueOf(rank));
+    }
     public Suite getSuite() {
 
         return suite;
