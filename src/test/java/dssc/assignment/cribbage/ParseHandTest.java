@@ -27,11 +27,11 @@ public class ParseHandTest {
     }
     @Test
     void parseFourCards() {
-        Hand hand = HandParser.parseHand("QC0C1H8SJD");
+        Hand hand = HandParser.parseHand("QCAC1H8SJD");
         assertAll(
                 () -> assertEquals('Q', hand.dealCard(1).getRank()),
                 () -> assertEquals(Suite.CLUB, hand.dealCard(1).getSuite()),
-                () -> assertEquals('0', hand.dealCard(2).getRank()),
+                () -> assertEquals('A', hand.dealCard(2).getRank()),
                 () -> assertEquals(Suite.CLUB, hand.dealCard(2).getSuite()),
                 () -> assertEquals('1', hand.dealCard(3).getRank()),
                 () -> assertEquals(Suite.HEART, hand.dealCard(3).getSuite()),
