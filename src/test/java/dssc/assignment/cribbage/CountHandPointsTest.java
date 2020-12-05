@@ -16,11 +16,12 @@ public class CountHandPointsTest {
 
         );
     }*/
+    private final PointCalculator pointCalculator = new PointCalculator();
     @Test
     void fifteen_two_Points_and_single_pair_points() {
         Hand hand = HandParser.parseHand("KHQC4DAC4S");
         assertAll(
-                () -> assertEquals(10, PointCalculator.calculatePoints(hand))
+                () -> assertEquals(10, pointCalculator.calculatePoints(hand))
                 //() -> assertEquals(29,29)
 
         );
@@ -31,7 +32,7 @@ public class CountHandPointsTest {
     void fifteen_two_Points_and_single_pair_points2() {
         Hand hand = HandParser.parseHand("KHADACAS5C");
         assertAll(
-                () -> assertEquals(4, PointCalculator.calculatePoints(hand))
+                () -> assertEquals(4, pointCalculator.calculatePoints(hand))
                 //() -> assertEquals(29,29)
 
         );
@@ -41,7 +42,7 @@ public class CountHandPointsTest {
     void triple_pair_points() {
         Hand hand = HandParser.parseHand("AH1C1H2H3D");
         assertAll(
-                () -> assertEquals(6, PointCalculator.calculatePoints(hand))
+                () -> assertEquals(6, pointCalculator.calculatePoints(hand))
                 //() -> assertEquals(29,29)
 
         );
@@ -51,7 +52,7 @@ public class CountHandPointsTest {
     void quadruple_pair_points() {
         Hand hand = HandParser.parseHand("AH1C1H2H3H");
         assertAll(
-                () -> assertEquals(12, PointCalculator.calculatePoints(hand))
+                () -> assertEquals(12, pointCalculator.calculatePoints(hand))
                 //() -> assertEquals(29,29)
 
         );

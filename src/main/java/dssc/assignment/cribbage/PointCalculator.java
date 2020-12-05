@@ -2,11 +2,11 @@ package dssc.assignment.cribbage;
 
 public class PointCalculator {
 
-    public static int calculatePoints(Hand hand) {
+    public int calculatePoints(Hand hand) {
         return fifteen_two_points(hand) + pairs_points(hand);
     }
 
-    public static int fifteen_two_points(Hand hand) {
+    public int fifteen_two_points(Hand hand) {
         int score = 0;
         int sum = 0;
         for (int i = 1; i < 6; i++) {
@@ -21,7 +21,7 @@ public class PointCalculator {
     }
 
 
-    private static int countTheseCardsForFiftheenTwo(int i, int j, Hand hand) {
+    private int countTheseCardsForFiftheenTwo(int i, int j, Hand hand) {
         int card1Value = hand.dealCard(i).getRankInt();
         int card2Value = hand.dealCard(j).getRankInt();
         int addPoints = 0;
@@ -30,7 +30,7 @@ public class PointCalculator {
         return addPoints;
     }
 
-    private static int dontCountTheseCardsForFiftheenTwo(int i, int j, Hand hand) {
+    private int dontCountTheseCardsForFiftheenTwo(int i, int j, Hand hand) {
         int cardValue;
         int sum = 0;
         int addPoints = 0;
@@ -46,7 +46,7 @@ public class PointCalculator {
         return addPoints;
     }
 
-    private static int countAllCardsForFiftheenTwo(Hand hand) {
+    private int countAllCardsForFiftheenTwo(Hand hand) {
         int cardValue;
         int sum = 0;
         int addPoints = 0;
@@ -76,7 +76,7 @@ public class PointCalculator {
     }*/
 
 
-    private static int pairs_points(Hand hand) {
+    private int pairs_points(Hand hand) {
         int score = 0;
         int sum = 0;
         for (int i = 1; i < 6; i++) {
@@ -88,7 +88,7 @@ public class PointCalculator {
         return score / 2;
 }
 
-    public static int countTheseCardsForPairs(int i, int j,Hand hand){
+    public int countTheseCardsForPairs(int i, int j,Hand hand){
         int addPoints = 0;
         if(i!=j){
              Suite card1Suite = hand.dealCard(i).getSuite();
