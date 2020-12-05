@@ -3,7 +3,7 @@ package dssc.assignment.cribbage;
 public class PointCalculator {
 
     public int calculatePoints(Hand hand) {
-        return fifteen_two_points(hand) + pairs_points(hand);
+        return fifteen_two_points(hand) + pairs_points(hand)+jack_points(hand);
     }
 
     public int fifteen_two_points(Hand hand) {
@@ -60,22 +60,6 @@ public class PointCalculator {
         return addPoints;
     }
 
-  /*  private static int pairs_points(Hand hand) {
-        Suite card1Suit;
-        Suite card2Suit;
-        int addPoints = 0;
-        for (int i = 1; i < 6; i++) {
-            for (int j = 1; i < 6; i++) {
-                card1Suit = hand.dealCard(i).getSuite();
-                card2Suit = hand.dealCard(j).getSuite();
-                if (card1Suit == card2Suit)
-                    addPoints += 2;
-            }
-        }
-        return addPoints;
-    }*/
-
-
     private int pairs_points(Hand hand) {
         int score = 0;
         int sum = 0;
@@ -99,5 +83,17 @@ public class PointCalculator {
         }
     return addPoints;
     }
-
+    public int jack_points(Hand hand){
+        Suite starterSuite=hand.dealCard(5).getSuite();
+        Suite compareSuite;
+        char compareRank;
+        int addPoints = 0;
+        for (int i = 1;i<5;i++){
+        compareSuite = hand.dealCard(i).getSuite();
+        compareRank = hand.dealCard(i).getRank();
+        if (compareSuite == starterSuite && compareRank == 'J')
+            addPoints += 1;
+        }
+        return addPoints;
+    }
 }

@@ -53,10 +53,29 @@ public class CountHandPointsTest {
         Hand hand = HandParser.parseHand("AH1C1H2H3H");
         assertAll(
                 () -> assertEquals(12, pointCalculator.calculatePoints(hand))
-                //() -> assertEquals(29,29)
+
 
         );
 
     }
+    @Test
+    void jack_points_plus_triple_pair() {
+        Hand hand = HandParser.parseHand("JHACAHADAH");
+        assertAll(
+                () -> assertEquals(7, pointCalculator.calculatePoints(hand))
 
+
+        );
+
+    }
+    @Test
+    void jack_points_plus_single_pair() {
+        Hand hand = HandParser.parseHand("JHACASADAH");
+        assertAll(
+                () -> assertEquals(3, pointCalculator.calculatePoints(hand))
+
+
+        );
+
+    }
 }
