@@ -17,6 +17,8 @@ public class Card {
             return 1;
         else if (rank == 'J' || rank == 'Q' || rank == 'K')
             return 10;
+        else if (rank == '0')
+            return 10;
         else return Integer.parseInt(String.valueOf(rank));
     }
     public Suite getSuite() {
