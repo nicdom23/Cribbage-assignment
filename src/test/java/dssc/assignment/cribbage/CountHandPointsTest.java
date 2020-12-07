@@ -22,14 +22,14 @@ public class CountHandPointsTest {
                 () -> assertEquals(10, pointCalculator.calculatePoints(hand))
         );
     }*/
-   /*@Test
-    void fifteen_two_Points_and_single_pair_points() {
-        Hand hand = HandParser.parseHand("KHQC4DAC4S");
+   @Test
+    void fifteen_two_Points() {
+        Hand hand = HandParser.parseHand("KH5CADACAS");
         assertAll(
-                () -> assertEquals(10, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(2, pointCalculator.fifteen_two_points(hand))
         );
 
-    }*/
+    }
 
     @Test
     void single_pair_points() {

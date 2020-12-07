@@ -18,14 +18,14 @@ public class PointCalculator {
             }
         }
         score += countAllCardsForFiftheenTwo(hand);
-        return score;
+        return score/2;
     }
     private int countTheseCardsForFiftheenTwo(int i, int j, Hand hand) {
         int card1Value = hand.dealCard(i).getRankInt();
         int card2Value = hand.dealCard(j).getRankInt();
         int addPoints = 0;
         if (card1Value + card2Value == 15)
-            addPoints += 2;
+            addPoints = 2;
         return addPoints;
     }
     private int dontCountTheseCardsForFiftheenTwo(int i, int j, Hand hand) {
@@ -39,10 +39,8 @@ public class PointCalculator {
             }
         }
         if (sum == 15){
-            addPoints+= 2;
+            addPoints = 2;
         }
-        if(i ==j)
-            addPoints +=2;
 
         return addPoints;
     }
@@ -55,7 +53,7 @@ public class PointCalculator {
             sum += cardValue;
         }
         if (sum == 15)
-            addPoints += 2;
+            addPoints = 4;
 
         return addPoints;
     }
