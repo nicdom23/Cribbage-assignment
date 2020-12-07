@@ -18,7 +18,7 @@ public class PointCalculator {
             }
         }
         score += countAllCardsForFiftheenTwo(hand);
-        return score / 2;
+        return score;
     }
     private int countTheseCardsForFiftheenTwo(int i, int j, Hand hand) {
         int card1Value = hand.dealCard(i).getRankInt();
@@ -38,8 +38,11 @@ public class PointCalculator {
                 sum += cardValue;
             }
         }
-        if (sum == 15)
-            addPoints += 2;
+        if (sum == 15){
+            addPoints+= 2;
+        }
+        if(i ==j)
+            addPoints +=2;
 
         return addPoints;
     }
@@ -52,31 +55,40 @@ public class PointCalculator {
             sum += cardValue;
         }
         if (sum == 15)
-            addPoints += 4;
+            addPoints += 2;
 
         return addPoints;
     }
 
     private int pairs_points(Hand hand) {
         int score = 0;
-        int sum = 0;
+        int flags[] = new int[14];
+        Arrays.fill(flags,1);
+        int points[] = new int[14];
         for (int i = 1; i < 6; i++) {
             for (int j = 1; j < 6; j++) {
-                score += countTheseCardsForPairs(i, j, hand);
+                points = countTheseCardsForPairs(i, j, hand,flags,points);
             }
         }
-        return score / 2;
-    }
-    public int countTheseCardsForPairs(int i, int j, Hand hand) {
-        int addPoints = 0;
-        if (i != j) {
-            char card1Suite = hand.dealCard(i).getRank();
-            char card2Suite = hand.dealCard(j).getRank();
-
-            if (Character.compare(card1Suite,card2Suite)==0)
-                addPoints += 2;
+        for(int k = 0;k<13;k++){
+            score += points[k]/flags[k];
         }
-        return addPoints;
+        return score ;
+    }
+    public int[] countTheseCardsForPairs(int i, int j, Hand hand,int[] flags,int[] points) {
+        int addPoints = 0;
+
+        if (i != j) {
+            int card1Suite = hand.dealCard(i).getRankInt();
+            int card2Suite = hand.dealCard(j).getRankInt();
+
+            if (card1Suite ==card2Suite){
+                points[card1Suite] += 2;
+                flags[card1Suite] += 1;
+            }
+
+        }
+        return points;
     }
 
     public int jack_points(Hand hand) {

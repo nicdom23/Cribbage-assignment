@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CountHandPointsTest {
     private final PointCalculator pointCalculator = new PointCalculator();
 
-    @Test
+    /*@Test
     void handPoints1() {
         Hand hand = HandParser.parseHand("5H5D5SJC5C");
         assertAll(
@@ -21,8 +21,8 @@ public class CountHandPointsTest {
         assertAll(
                 () -> assertEquals(10, pointCalculator.calculatePoints(hand))
         );
-    }
-   @Test
+    }*/
+   /*@Test
     void fifteen_two_Points_and_single_pair_points() {
         Hand hand = HandParser.parseHand("KHQC4DAC4S");
         assertAll(
@@ -51,7 +51,7 @@ public class CountHandPointsTest {
     void quadruple_pair_points() {
         Hand hand = HandParser.parseHand("0H0C0D0S4D");
         assertAll(
-                () -> assertEquals(12, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(8, pointCalculator.calculatePoints(hand))
 
 
         );
@@ -96,62 +96,62 @@ public class CountHandPointsTest {
 
         );
 
-    }
+    }*/
     @Test
-    void previous_points_plus_triple_run() {
+    void points_triple_run() {
         Hand hand = HandParser.parseHand("AH2D3C6H8H");
         assertAll(
-                () -> assertEquals(2+3, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(3, pointCalculator.runs_points(hand))
 
 
         );
 
     }
     @Test
-    void previous_points_plus_triple_run2() {
+    void points_triple_run2() {
         Hand hand = HandParser.parseHand("5H6C7DKDQC");
         assertAll(
-                () -> assertEquals(4+3, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(3, pointCalculator.runs_points(hand))
 
 
         );
 
     }
     @Test
-    void previous_points_plus_quadruple_run() {
+    void points_quadruple_run() {
         Hand hand = HandParser.parseHand("AH2C3D4S8H");
         assertAll(
-                () -> assertEquals(3+10, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(10, pointCalculator.runs_points(hand))
 
 
         );
 
     }
     @Test
-    void previous_points_plus_quadruple_run2() {
+    void points_quadruple_run2() {
         Hand hand = HandParser.parseHand("5H6C7D8S8H");
         assertAll(
-                () -> assertEquals(6+17, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(17, pointCalculator.runs_points(hand))
 
 
         );
 
     }
     @Test
-    void previous_points_plus_penta_run() {
+    void points_penta_run() {
         Hand hand = HandParser.parseHand("AH2C3D4H5H");
         assertAll(
-                () -> assertEquals(2+22, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(22, pointCalculator.runs_points(hand))
 
 
         );
 
     }
     @Test
-    void previous_points_plus_penta_run2() {
+    void points_penta_run2() {
         Hand hand = HandParser.parseHand("9H0CJDQHKH");
         assertAll(
-                () -> assertEquals(0+22, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(22, pointCalculator.runs_points(hand))
 
 
         );
