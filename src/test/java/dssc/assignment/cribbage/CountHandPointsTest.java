@@ -55,6 +55,22 @@ public class CountHandPointsTest {
 
     }
     @Test
+    void fifteen_two_Points5() {
+        Hand hand = HandParser.parseHand("KH5CKDASAH");
+        assertAll(
+                () -> assertEquals(4, pointCalculator.fifteen_two_points(hand))
+        );
+
+    }
+    @Test
+    void fifteen_two_Points6() {
+        Hand hand = HandParser.parseHand("KH5CKDKSAH");
+        assertAll(
+                () -> assertEquals(6, pointCalculator.fifteen_two_points(hand))
+        );
+
+    }
+    @Test
     void single_pair_points() {
         Hand hand = HandParser.parseHand("KHADAC2S5C");
         assertAll(
