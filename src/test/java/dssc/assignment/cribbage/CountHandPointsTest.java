@@ -66,37 +66,37 @@ public class CountHandPointsTest {
 
         );
 
-    }
+    }*/
     @Test
     void jack_points_plus_single_pair() {
         Hand hand = HandParser.parseHand("JHACASADAH");
         assertAll(
-                () -> assertEquals(13, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(1, pointCalculator.jack_points(hand))
 
 
         );
 
     }
     @Test
-    void flush_plus_double_pair_royale() {
+    void flush_of_four() {
         Hand hand = HandParser.parseHand("AH2H4H6H8C");
         assertAll(
-                () -> assertEquals(7, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(4, pointCalculator.flush_points(hand))
 
 
         );
 
     }
     @Test
-    void complete_flush_plus_double_double_pair_royale() {
+    void complete_flush_of_5() {
         Hand hand = HandParser.parseHand("AH2H4H6H8H");
         assertAll(
-                () -> assertEquals(8, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(5, pointCalculator.flush_points(hand))
 
 
         );
 
-    }*/
+    }
     @Test
     void points_triple_run() {
         Hand hand = HandParser.parseHand("AH2D3C6H8H");
