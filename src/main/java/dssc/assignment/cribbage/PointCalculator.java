@@ -54,7 +54,6 @@ public class PointCalculator {
         }
         if (sum == 15)
             addPoints = 4;
-
         return addPoints;
     }
 
