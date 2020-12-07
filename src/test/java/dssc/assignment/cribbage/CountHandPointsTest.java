@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CountHandPointsTest {
     private final PointCalculator pointCalculator = new PointCalculator();
 
-    /*@Test
+    @Test
     void handPoints1() {
         Hand hand = HandParser.parseHand("5H5D5SJC5C");
         assertAll(
@@ -21,7 +21,7 @@ public class CountHandPointsTest {
         assertAll(
                 () -> assertEquals(10, pointCalculator.calculatePoints(hand))
         );
-    }*/
+    }
    @Test
     void fifteen_two_Points() {
         Hand hand = HandParser.parseHand("KH5CADACAS");
@@ -115,6 +115,14 @@ public class CountHandPointsTest {
         Hand hand = HandParser.parseHand("KH5C5D5S5H");
         assertAll(
                 () -> assertEquals(8+4*2, pointCalculator.fifteen_two_points(hand))
+        );
+
+    }
+    @Test
+    void fifteen_two_Points13() {
+        Hand hand = HandParser.parseHand("KS2H2DADAH");
+        assertAll(
+                () -> assertEquals(2*2, pointCalculator.fifteen_two_points(hand))
         );
 
     }

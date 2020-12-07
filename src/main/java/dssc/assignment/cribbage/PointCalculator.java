@@ -39,7 +39,10 @@ public class PointCalculator {
             }
         }
         if (sum == 15){
-            addPoints = 2;
+            if(i==j)
+                addPoints = 4;
+            else
+                addPoints = 2;
         }
 
         return addPoints;
@@ -71,10 +74,10 @@ public class PointCalculator {
 
         int score = 0;
         if (i != j) {
-            int card1Suite = hand.dealCard(i).getRankInt();
-            int card2Suite = hand.dealCard(j).getRankInt();
+            char card1Suite = hand.dealCard(i).getRank();
+            char card2Suite = hand.dealCard(j).getRank();
 
-            if (card1Suite ==card2Suite){
+            if (Character.compare(card1Suite,card2Suite)==0){
                 score = 1;
             }
 
