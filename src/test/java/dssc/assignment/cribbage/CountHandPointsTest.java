@@ -71,6 +71,54 @@ public class CountHandPointsTest {
 
     }
     @Test
+    void fifteen_two_Points7() {
+        Hand hand = HandParser.parseHand("KH4CAD8S8H");
+        assertAll(
+                () -> assertEquals(2, pointCalculator.fifteen_two_points(hand))
+        );
+
+    }
+    @Test
+    void fifteen_two_Points8() {
+        Hand hand = HandParser.parseHand("8S8HKH4CAD");
+        assertAll(
+                () -> assertEquals(2, pointCalculator.fifteen_two_points(hand))
+        );
+
+    }
+    @Test
+    void fifteen_two_Points9() {
+        Hand hand = HandParser.parseHand("KS8HKH4CAD");
+        assertAll(
+                () -> assertEquals(4, pointCalculator.fifteen_two_points(hand))
+        );
+
+    }
+    @Test
+    void fifteen_two_Points10() {
+        Hand hand = HandParser.parseHand("KSKDKH4CAD");
+        assertAll(
+                () -> assertEquals(6, pointCalculator.fifteen_two_points(hand))
+        );
+
+    }
+    @Test
+    void fifteen_two_Points11() {
+        Hand hand = HandParser.parseHand("KH4CADASAH");
+        assertAll(
+                () -> assertEquals(6, pointCalculator.fifteen_two_points(hand))
+        );
+
+    }
+    @Test
+    void fifteen_two_Points12() {
+        Hand hand = HandParser.parseHand("KH5C5D5S5H");
+        assertAll(
+                () -> assertEquals(8+4*2, pointCalculator.fifteen_two_points(hand))
+        );
+
+    }
+    @Test
     void single_pair_points() {
         Hand hand = HandParser.parseHand("KHADAC2S5C");
         assertAll(
