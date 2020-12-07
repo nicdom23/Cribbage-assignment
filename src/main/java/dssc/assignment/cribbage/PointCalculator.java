@@ -60,35 +60,29 @@ public class PointCalculator {
         return addPoints;
     }
 
-    private int pairs_points(Hand hand) {
-        int score = 0;
-        int flags[] = new int[14];
-        Arrays.fill(flags,1);
-        int points[] = new int[14];
+    public int pairs_points(Hand hand) {
+        int addPoints = 0;
         for (int i = 1; i < 6; i++) {
             for (int j = 1; j < 6; j++) {
-                points = countTheseCardsForPairs(i, j, hand,flags,points);
+                addPoints+= countTheseCardsForPairs(i, j, hand);
             }
         }
-        for(int k = 0;k<13;k++){
-            score += points[k]/flags[k];
-        }
-        return score ;
-    }
-    public int[] countTheseCardsForPairs(int i, int j, Hand hand,int[] flags,int[] points) {
-        int addPoints = 0;
 
+        return addPoints ;
+    }
+    public int countTheseCardsForPairs(int i, int j, Hand hand) {
+
+        int score = 0;
         if (i != j) {
             int card1Suite = hand.dealCard(i).getRankInt();
             int card2Suite = hand.dealCard(j).getRankInt();
 
             if (card1Suite ==card2Suite){
-                points[card1Suite] += 2;
-                flags[card1Suite] += 1;
+                score = 1;
             }
 
         }
-        return points;
+        return score;
     }
 
     public int jack_points(Hand hand) {

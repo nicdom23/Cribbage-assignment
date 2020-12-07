@@ -29,13 +29,13 @@ public class CountHandPointsTest {
                 () -> assertEquals(10, pointCalculator.calculatePoints(hand))
         );
 
-    }
+    }*/
 
     @Test
-    void fifteen_two_Points_and_single_pair_points2() {
-        Hand hand = HandParser.parseHand("KHADACAS5C");
+    void single_pair_points() {
+        Hand hand = HandParser.parseHand("KHADAC2S5C");
         assertAll(
-                () -> assertEquals(8, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(2, pointCalculator.pairs_points(hand))
         );
 
     }
@@ -43,7 +43,7 @@ public class CountHandPointsTest {
     void triple_pair_points() {
         Hand hand = HandParser.parseHand("0H0C0D5D4D");
         assertAll(
-                () -> assertEquals(12, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(6, pointCalculator.pairs_points(hand))
         );
 
     }
@@ -51,24 +51,24 @@ public class CountHandPointsTest {
     void quadruple_pair_points() {
         Hand hand = HandParser.parseHand("0H0C0D0S4D");
         assertAll(
-                () -> assertEquals(8, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(12, pointCalculator.pairs_points(hand))
 
 
         );
 
     }
     @Test
-    void jack_points_plus_triple_pair() {
+    void jack_points() {
         Hand hand = HandParser.parseHand("JHACAHADQH");
         assertAll(
-                () -> assertEquals(7, pointCalculator.calculatePoints(hand))
+                () -> assertEquals(1, pointCalculator.jack_points(hand))
 
 
         );
 
-    }*/
+    }
     @Test
-    void jack_points_plus_single_pair() {
+    void jack_points2() {
         Hand hand = HandParser.parseHand("JHACASADAH");
         assertAll(
                 () -> assertEquals(1, pointCalculator.jack_points(hand))
