@@ -1,8 +1,23 @@
 package dssc.assignment.cribbage;
 
-public class Card {
+public class Card extends Object{
     private char rank;
     private Suite suite;
+
+    @Override
+    public boolean equals(Object o){
+        if(o==this) return true;
+        if(!(o instanceof Card)) return false;
+        Card card = (Card) o;
+        return (Character.compare(this.getRank(),card.getRank()) == 0)&&(this.suite==card.suite);
+    }
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result = 31*result+ (int)this.getRank();
+        result = 31*result+ this.getSuite().hashCode();
+        return result;
+    }
 
     public Card(char rank,Suite suite){
         this.rank = rank;

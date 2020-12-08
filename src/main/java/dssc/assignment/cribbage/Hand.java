@@ -15,6 +15,27 @@ public class Hand {
         this.fourth = four;
         this.starter = starter;
     }
+    @Override
+    public boolean equals(Object o){
+        if(o==this) return true;
+        if(!(o instanceof Hand)) return false;
+        Hand hand = (Hand) o;
+
+        return (this.first.equals(hand.first))&&(this.second.equals(hand.second))&&(this.third.equals(hand.third))&&(this.fourth.equals(hand.fourth))&&(this.starter.equals(hand.starter));
+    }
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result = result+ this.first.hashCode();
+        result = result+ this.second.hashCode();
+        result = result+ this.third.hashCode();
+        result = result+ this.fourth.hashCode();
+        result = result+ this.starter.hashCode();
+        return result;
+    }
+
+
+
 
     public Card dealCard(int numOfCard)
     {

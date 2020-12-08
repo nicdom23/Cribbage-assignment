@@ -11,33 +11,46 @@ public class ParseHandTest {
     @Test
     void parseOneCard_five_of_hearts() {
         Card card = CardParser.parseCard("5H");
-        assertAll(
-                () -> assertEquals('5', card.getRank()),
-                () -> assertEquals(Suite.HEART, card.getSuite())
-        );
+        Card cardToTest = new Card('5',Suite.HEART);
+               assertEquals(cardToTest, card);
     }
 
     @Test
     void parseOneCard_queen_of_clubs() {
         Card card = CardParser.parseCard("QC");
-        assertAll(
-                () -> assertEquals('Q', card.getRank()),
-                () -> assertEquals(Suite.CLUB, card.getSuite())
-        );
+        Card cardToTest = new Card('Q',Suite.CLUB);
+        assertEquals(cardToTest, card);
     }
     @Test
-    void parseFiveCards_QC_AC_1H_8S_JD() {
+    void parseHand_QC_AC_1H_8S_JD() {
         Hand hand = HandParser.parseHand("QCAC1H8SJD");
+        Card cardToTest1 = new Card('Q',Suite.CLUB);
+        Card cardToTest2 = new Card('A',Suite.CLUB);
+        Card cardToTest3 = new Card('1',Suite.HEART);
+        Card cardToTest4 = new Card('8',Suite.SPADE);
+        Card cardToTestStarter = new Card('J',Suite.DIAMOND);
+        Hand handToTest = new Hand(cardToTest1,cardToTest2,cardToTest3,cardToTest4,cardToTestStarter);
+        assertEquals(handToTest, hand);
+
+    }
+
+    @Test
+    void parseHand_QC_AC_1H_8S_JD_CarD_comparison() {
+        Hand hand = HandParser.parseHand("QCAC1H8SJD");
+        Card cardToTest1 = new Card('Q',Suite.CLUB);
+        Card cardToTest2 = new Card('A',Suite.CLUB);
+        Card cardToTest3 = new Card('1',Suite.HEART);
+        Card cardToTest4 = new Card('8',Suite.SPADE);
+        Card cardToTestStarter = new Card('J',Suite.DIAMOND);
+        Hand handToTest = new Hand(cardToTest1,cardToTest2,cardToTest3,cardToTest4,cardToTestStarter);
         assertAll(
-                () -> assertEquals('Q', hand.dealCard(1).getRank()),
-                () -> assertEquals(Suite.CLUB, hand.dealCard(1).getSuite()),
-                () -> assertEquals('A', hand.dealCard(2).getRank()),
-                () -> assertEquals(Suite.CLUB, hand.dealCard(2).getSuite()),
-                () -> assertEquals('1', hand.dealCard(3).getRank()),
-                () -> assertEquals(Suite.HEART, hand.dealCard(3).getSuite()),
-                () -> assertEquals('8', hand.dealCard(4).getRank()),
-                () -> assertEquals(Suite.SPADE, hand.dealCard(4).getSuite())
-        );
+                () -> assertEquals(handToTest.dealCard(1), hand.dealCard(1)),
+                () -> assertEquals(handToTest.dealCard(2), hand.dealCard(2)),
+                () -> assertEquals(handToTest.dealCard(3), hand.dealCard(3)),
+                () -> assertEquals(handToTest.dealCard(4), hand.dealCard(4)),
+                () -> assertEquals(handToTest.dealCard(5), hand.dealCard(5))
+                );
+
     }
 
 
