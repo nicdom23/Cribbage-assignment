@@ -33,7 +33,7 @@ public class Hand {
         result = result+ this.dealCard(5).hashCode();
         return result;
     }
-    public Card dealCard(int numOfCard){  ///////METHOD STILL NEEDED(see hand class)
+    public Card dealCard(int numOfCard){  ///////METHOD STILL NEEDED(see hand class and this class too)
         if(numOfCard == 1)
             return first;
         else if(numOfCard == 2)
@@ -45,41 +45,17 @@ public class Hand {
         else return starter;
 }
     public char dealCardRank(int numOfCard){
-        if(numOfCard == 1)
-            return first.getRank();
-        else if(numOfCard == 2)
-            return second.getRank();
-        else if(numOfCard == 3)
-            return third.getRank();
-        else if(numOfCard == 4)
-            return fourth.getRank();
-        else return starter.getRank();
+        return dealCard(numOfCard).getRank();
     }
 
 
     public int dealCardRankInt(int numOfCard)
     {
-        if(numOfCard == 1)
-            return first.getRankInt();
-        else if(numOfCard == 2)
-            return second.getRankInt();
-        else if(numOfCard == 3)
-            return third.getRankInt();
-        else if(numOfCard == 4)
-            return fourth.getRankInt();
-        else return starter.getRankInt();
+        return dealCard(numOfCard).getRankInt();
     }
     public Suite dealCardSuite(int numOfCard)
     {
-        if(numOfCard == 1)
-            return first.getSuite();
-        else if(numOfCard == 2)
-            return second.getSuite();
-        else if(numOfCard == 3)
-            return third.getSuite();
-        else if(numOfCard == 4)
-            return fourth.getSuite();
-        else return starter.getSuite();
+        return dealCard(numOfCard).getSuite();
     }
 
     public static Hand parseHand(String handAsText) {
