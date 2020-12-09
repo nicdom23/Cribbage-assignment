@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class RunsCalculator {
 
     public int[] find_cards_composition(Hand hand) {
-        String ranks = "A234567890JQK";
+        String ranks = Card.orderedRanks;
         int flags[] = new int[14];
         //Arrays.fill(flags, 0);
 
@@ -32,40 +32,23 @@ public class RunsCalculator {
         steps = 0;
         for(int i = 0; i < 14;i++) {
             if (flags[i] == 0 || i == 13) {
-                if (steps == 3) { mult = 1;
+                if (steps == 3) {
+                    mult = 1;
                     for (int l = 0; l < 3; l++){
-
                         mult *= multipliers[l];}
                     addPoints += 3 * mult;
-                }else if (steps == 4) { mult =1;
+                }else if (steps == 4) {
+                    mult =1;
                     for (int l = 0; l < 4; l++){
 
                         mult *= multipliers[l];}
-                    addPoints += 7 * mult;
-                    mult = 1;
-                    for (int l = 0; l < 3; l++){
-
-                        mult *= multipliers[l];}
-                    addPoints += 3 * mult;
-                    mult = 1;
-                }else if (steps == 5) { mult =1;
+                    addPoints += 4 * mult;
+                }else if (steps == 5) {
+                    mult =1;
                     for (int l = 0; l < 5; l++){
 
                         mult *= multipliers[l];}
-                    addPoints += 12 * mult;
-                    mult = 1;
-                    for (int l = 0; l < 4; l++){
-
-                        mult *= multipliers[l];}
-                    addPoints += 7 * mult;
-                    mult = 1;
-                    for (int l = 0; l < 3; l++) {
-
-                        mult *= multipliers[l];
-                    }
-
-                    addPoints += 3 * mult;
-                    mult = 1;
+                    addPoints += 5 * mult;
                 }
                 Arrays.fill(multipliers,1);
                 multPos=0;

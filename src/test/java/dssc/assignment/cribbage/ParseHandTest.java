@@ -10,20 +10,20 @@ public class ParseHandTest {
 
     @Test
     void parseOneCard_five_of_hearts() {
-        Card card = CardParser.parseCard("5H");
+        Card card = Card.parseCard("5H");
         Card cardToTest = new Card('5',Suite.HEART);
                assertEquals(cardToTest, card);
     }
 
     @Test
     void parseOneCard_queen_of_clubs() {
-        Card card = CardParser.parseCard("QC");
+        Card card = Card.parseCard("QC");
         Card cardToTest = new Card('Q',Suite.CLUB);
         assertEquals(cardToTest, card);
     }
     @Test
     void parseHand_QC_AC_1H_8S_JD() {
-        Hand hand = HandParser.parseHand("QCAC1H8SJD");
+        Hand hand = Hand.parseHand("QCAC1H8SJD");
         Card cardToTest1 = new Card('Q',Suite.CLUB);
         Card cardToTest2 = new Card('A',Suite.CLUB);
         Card cardToTest3 = new Card('1',Suite.HEART);
@@ -36,7 +36,7 @@ public class ParseHandTest {
 
     @Test
     void parseHand_QC_AC_1H_8S_JD_CarD_comparison() {
-        Hand hand = HandParser.parseHand("QCAC1H8SJD");
+        Hand hand = Hand.parseHand("QCAC1H8SJD");
         Card cardToTest1 = new Card('Q',Suite.CLUB);
         Card cardToTest2 = new Card('A',Suite.CLUB);
         Card cardToTest3 = new Card('1',Suite.HEART);

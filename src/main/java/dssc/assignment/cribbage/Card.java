@@ -3,7 +3,7 @@ package dssc.assignment.cribbage;
 public class Card extends Object{
     private char rank;
     private Suite suite;
-
+    public static String orderedRanks = "A234567890JQK";
     @Override
     public boolean equals(Object o){
         if(o==this) return true;
@@ -39,5 +39,13 @@ public class Card extends Object{
     public Suite getSuite() {
 
         return suite;
+    }
+
+    public static Card parseCard(String cardAsText) {
+        for (Suite refSuite : Suite.values()){
+            if(refSuite.asChar() == cardAsText.charAt(1))
+                return new Card(cardAsText.charAt(0),refSuite);
+        }
+        return new Card(cardAsText.charAt(0),Suite.INVALID);
     }
 }
