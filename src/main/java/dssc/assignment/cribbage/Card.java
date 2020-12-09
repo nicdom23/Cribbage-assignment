@@ -1,5 +1,6 @@
 package dssc.assignment.cribbage;
 
+
 public class Card extends Object{
     private char rank;
     private Suite suite;
@@ -49,3 +50,4 @@ public class Card extends Object{
         return new Card(cardAsText.charAt(0),Suite.INVALID);
     }
 }
+
