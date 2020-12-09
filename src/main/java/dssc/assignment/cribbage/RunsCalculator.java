@@ -15,7 +15,7 @@ public class RunsCalculator {
         for(int i = 0; i < 13;i++)
             for(int j = 1; j < 6;j++) {
                 sequenceRank = ranks.charAt(i);
-                firstCardRank = hand.dealCard(j).getRank();
+                firstCardRank = hand.dealCardRank(j);
                 if (Character.compare(firstCardRank, sequenceRank) == 0) {
                     flags[i] += 1;
                 }

@@ -33,7 +33,7 @@ public class Hand {
         result = result+ this.dealCard(5).hashCode();
         return result;
     }
-    public Card dealCard(int numOfCard){
+    public Card dealCard(int numOfCard){  ///////METHOD STILL NEEDED(see hand class)
         if(numOfCard == 1)
             return first;
         else if(numOfCard == 2)

@@ -2,8 +2,8 @@ package dssc.assignment.cribbage;
 
 public class FifteenTwoCalculator {
     public int countTheseCardsForFiftheenTwo(int i, int j, Hand hand) {
-        int card1Value = hand.dealCard(i).getRankInt();
-        int card2Value = hand.dealCard(j).getRankInt();
+        int card1Value = hand.dealCardRankInt(i);
+        int card2Value = hand.dealCardRankInt(j);
         int addPoints = 0;
         if (card1Value + card2Value == 15)
             addPoints = 2;
@@ -15,7 +15,7 @@ public class FifteenTwoCalculator {
         int addPoints = 0;
         for (int k = 1; k < 6; k++) {
             if (k != i && k != j) {//skip these two cards
-                cardValue = hand.dealCard(k).getRankInt();
+                cardValue = hand.dealCardRankInt(k);
                 sum += cardValue;
             }
         }
@@ -33,7 +33,7 @@ public class FifteenTwoCalculator {
         int sum = 0;
         int addPoints = 0;
         for (int k = 1; k < 6; k++) {
-            cardValue = hand.dealCard(k).getRankInt();
+            cardValue = hand.dealCardRankInt(k);
             sum += cardValue;
         }
         if (sum == 15)
