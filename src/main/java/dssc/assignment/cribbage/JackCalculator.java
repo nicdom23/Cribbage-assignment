@@ -5,12 +5,12 @@ public class JackCalculator {
     public int jackCalculator(Hand hand) {
         Suite starterSuite = hand.dealCardSuite(5);
         Suite compareSuite;
-        char compareRank;
+        char compareRankChar;
         int addPoints = 0;
         for (int i = 1; i < 5; i++) {
             compareSuite = hand.dealCardSuite(i);
-            compareRank = hand.dealCardRank(i);
-            if (compareSuite == starterSuite && compareRank == 'J')
+            compareRankChar = hand.dealCardRankChar(i);
+            if (compareSuite == starterSuite && Character.compare(compareRankChar, 'J')==0)
                 addPoints += 1;
         }
         return addPoints;

@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class RunsCalculator {
 
     public int[] find_cards_composition(Hand hand) {
-        String ranks = Card.orderedRanks;
+        String ranks = Rank.orderedRanks;
         int flags[] = new int[14];
         //Arrays.fill(flags, 0);
 
@@ -15,7 +15,7 @@ public class RunsCalculator {
         for(int i = 0; i < 13;i++)
             for(int j = 1; j < 6;j++) {
                 sequenceRank = ranks.charAt(i);
-                firstCardRank = hand.dealCardRank(j);
+                firstCardRank = hand.dealCardRankChar(j);
                 if (Character.compare(firstCardRank, sequenceRank) == 0) {
                     flags[i] += 1;
                 }

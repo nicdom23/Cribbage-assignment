@@ -5,8 +5,8 @@ public class PairsCalculator {
 
         int score = 0;
         if (i != j) {
-            char card1Suite = hand.dealCardRank(i);
-            char card2Suite = hand.dealCardRank(j);
+            char card1Suite = hand.dealCardRankChar(i);
+            char card2Suite = hand.dealCardRankChar(j);
 
             if (Character.compare(card1Suite,card2Suite)==0){
                 score = 1;

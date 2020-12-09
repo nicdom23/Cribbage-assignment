@@ -44,14 +44,17 @@ public class Hand {
             return fourth;
         else return starter;
 }
-    public char dealCardRank(int numOfCard){
+    public Rank dealCardRank(int numOfCard){
         return dealCard(numOfCard).getRank();
+    }
+    public char dealCardRankChar(int numOfCard){
+        return dealCardRank(numOfCard).getRankChar();
     }
 
 
     public int dealCardRankInt(int numOfCard)
     {
-        return dealCard(numOfCard).getRankInt();
+        return dealCardRank(numOfCard).getRankInt();
     }
     public Suite dealCardSuite(int numOfCard)
     {
@@ -59,12 +62,11 @@ public class Hand {
     }
 
     public static Hand parseHand(String handAsText) {
-        Card card= new Card('t',-1,Suite.INVALID);
-        Card card1 = card.parseCard(handAsText.substring(0,2));
-        Card card2 = card.parseCard(handAsText.substring(2,4));
-        Card card3 = card.parseCard(handAsText.substring(4,6));
-        Card card4 = card.parseCard(handAsText.substring(6,8));
-        Card starter = card.parseCard(handAsText.substring(8,10));
+        Card card1 = Card.parseCard(handAsText.substring(0,2));
+        Card card2 = Card.parseCard(handAsText.substring(2,4));
+        Card card3 = Card.parseCard(handAsText.substring(4,6));
+        Card card4 = Card.parseCard(handAsText.substring(6,8));
+        Card starter = Card.parseCard(handAsText.substring(8,10));
 
         return new Hand(card1,card2,card3,card4,starter);
     }
