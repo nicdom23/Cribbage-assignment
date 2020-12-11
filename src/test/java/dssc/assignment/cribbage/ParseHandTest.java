@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ParseHandTest {
     @Test
     void parseOneCard_five_of_hearts() {
-        Card parsedCard = Card.parseCard("5H");
+        Card parsedCard = CardParser.parseCard("5H");
         Rank rank = new Rank('5',5);
         Card cardToTest = new Card(rank,Suite.HEART);
                assertEquals(cardToTest, parsedCard);
@@ -17,7 +17,7 @@ public class ParseHandTest {
 
     @Test
     void parseOneCard_queen_of_clubs() {
-        Card parsedCard = Card.parseCard("QC");
+        Card parsedCard = CardParser.parseCard("QC");
         Rank rank = new Rank('Q',10);
         Card cardToTest = new Card(rank,Suite.CLUB);
         assertEquals(cardToTest, parsedCard);
@@ -25,7 +25,7 @@ public class ParseHandTest {
 
     @Test
     void parseHand_QC_AC_1H_8S_JD() {
-        Hand parsedHand = Hand.parseHand("QCAC1H8SJD");
+        Hand parsedHand = HandParser.parseHand("QCAC1H8SJD");
         Rank rank = new Rank('Q',10);
         Card cardToTest1 = new Card(rank,Suite.CLUB);
         rank = new Rank('A',1);
@@ -43,7 +43,7 @@ public class ParseHandTest {
 
     @Test
     void parseHand_QC_AC_1H_8S_JD_CarD_comparison() {
-        Hand parsedHand = Hand.parseHand("QCAC2H8SJD");
+        Hand parsedHand = HandParser.parseHand("QCAC2H8SJD");
         Rank rank = new Rank('Q',10);
         Card cardToTest1 = new Card(rank,Suite.CLUB);
         rank = new Rank('A',1);
